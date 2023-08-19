@@ -1,7 +1,7 @@
 # Author: Florian Latzelsperger
 # Date: 03.2023
 
-def testingCcascade(sample1, sample2, alpha, paired) -> list:
+def testingCascade(sample1, sample2, alpha, paired) -> list:
     '''
     Performs statistical tests on two samples (list) in a cascade-like fashion, determining if there is a significant difference.
     Final H0 (simplified): Samples are statistically the same
@@ -102,7 +102,7 @@ def testingCcascade(sample1, sample2, alpha, paired) -> list:
         
         return [p, sigTest]
 
-testingCcascade(sample1, sample2, alpha, paired)
+testingCascade(sample1, sample2, alpha, paired)
 
 ### Testing
 import numpy as np
@@ -119,22 +119,22 @@ sampleNorm5 = stats.norm.rvs(size = 70, loc = 10, scale = 2, random_state = rng)
 sampleRndm1 = stats.uniform.rvs(size = 100, loc = 10, random_state = rng) # Data non-normally distributed around 10, length 100
 
 # Test case 1: Unpaired, both normal, similar mean, same variance, same length
-testingCcascade(sampleNorm1, sampleNorm2, alpha = 0.05, paired = False)
+testingCascade(sampleNorm1, sampleNorm2, alpha = 0.05, paired = False)
 
 # Test case 2: Unpaired, both normal, similar mean, different variance, same length
-testingCcascade(sampleNorm1, sampleNorm3, alpha = 0.05, paired = False)
+testingCascade(sampleNorm1, sampleNorm3, alpha = 0.05, paired = False)
 
 # Test case 3: Unpaired, both normal, different mean, same variance, same length
-testingCcascade(sampleNorm1, sampleNorm4, alpha = 0.05, paired = False)
+testingCascade(sampleNorm1, sampleNorm4, alpha = 0.05, paired = False)
 
 # Test case 4: Unpaired, both normal, same mean, same variance, different length
-testingCcascade(sampleNorm1, sampleNorm5, alpha = 0.05, paired = False)
+testingCascade(sampleNorm1, sampleNorm5, alpha = 0.05, paired = False)
 
 # Test case 5: Unpaired, only one sample normal
-testingCcascade(sampleNorm1, sampleRndm1, alpha = 0.05, paired = False)
+testingCascade(sampleNorm1, sampleRndm1, alpha = 0.05, paired = False)
 
 # Test case 6: Paired, providing different sample lenghts (should lead to error)
-testingCcascade(sampleNorm1, sampleRndm1, alpha = 0.05, paired = True)
+testingCascade(sampleNorm1, sampleRndm1, alpha = 0.05, paired = True)
 
 # Test case 6: Paired, providing different sample lenghts (should lead to error)
-testingCcascade(sampleNorm1, sampleNorm4, alpha = 0.05, paired = True)
+testingCascade(sampleNorm1, sampleNorm4, alpha = 0.05, paired = True)
